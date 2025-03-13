@@ -8,8 +8,8 @@ El propósito de scrapear será obtener datos económicos como el PIB, la inflac
 
 🔹 El objetivo es extraer datos de indicadores como los anteriores mencionados y almacenarlos en una base de datos para su análisis y visualización mediante gráficos o tablas.
 
-🔹 Datos clave a obtener:
-✅ PIB (Producto Interior Bruto) por trimestre o año.
-✅ Inflación (índice de precios de consumo - IPC).
-✅ Tasa de desempleo por región y sector económico.
-✅ Evolución histórica de estos indicadores.
+🔹 Datos clave a obtener:<br>
+✅ PIB (Producto Interior Bruto) por trimestre o año.<br>
+✅ Inflación (índice de precios de consumo - IPC).<br>
+✅ Tasa de desempleo por región y sector económico.<br>
+✅ Evolución histórica de estos indicadores.<br>
