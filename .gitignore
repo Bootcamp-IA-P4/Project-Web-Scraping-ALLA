@@ -1,0 +1,12 @@
+# ignoramos el entorno virtual
+.venv/
+
+# ignoramos archivos de Python compilados
+__pycache__/
+*.pyc
+
+# ignoramos archivos de configuración del editor
+.vscode/
+.idea/
+
+.DS_Store
