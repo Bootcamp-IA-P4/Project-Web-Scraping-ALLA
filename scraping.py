@@ -1,50 +1,53 @@
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+import time
+import undetected_chromedriver as uc
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.service import Service
-from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
 options = Options()
+options.add_argument("--disable-gpu")  # Desactivar GPU
+options.add_argument("--no-sandbox")  # Desactivar sandbox
+options.add_argument("--disable-extensions")
 
-service = Service("/usr/local/bin/geckodriver")
-driver = webdriver.Firefox(service=service, options=options)
+# cambiamos el user-agent
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+options.add_argument(f"user-agent={user_agent}")
 
-time.sleep(2)  
+# iniciamos Chrome con undetected_chromedriver
+driver = uc.Chrome(options=options)
 
-
-# abrimos la página de InfoJobs
 driver.get("https://www.infojobs.net/")
-# esperamos 4 segundos
-time.sleep(4)  
-
+time.sleep(4)
 
 try:
-    # esperamos hasta que la barra de búsqueda esté presente en la página
+    submit_button = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "didomi-notice-agree-button"))
+    )
+    submit_button.click()
+    print("Agree and close clicked.")
+except Exception as e:
+    print(f"Error: {e} - Agree button not found or already clicked.")
+
+try:
+    # esperamos hasta que la barra de búsqueda esté presente
     search_box = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "palabra"))
     )
-    time.sleep(6)  
-
-    # escribimos "Full Stack" en la barra de búsqueda
     search_box.send_keys("Full Stack")
+    print("...Searching...")
 
-    # esperamos 4 segundos
-    time.sleep(4)  
-
-    
     # esperamos a que el botón de búsqueda esté presente y hacer clic
     search_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "searchOffers"))
     )
-    # esperamos 3 segundos
-    time.sleep(3)  
-
     search_button.click()
+    time.sleep(4)
 
     print("Búsqueda realizada con éxito.")
+    time.sleep(4)
 
 except Exception as e:
     print(f"Error al localizar el campo de búsqueda o el botón: {e}")
+
+print("El navegador sigue abierto, puedes cerrarlo manualmente.")
