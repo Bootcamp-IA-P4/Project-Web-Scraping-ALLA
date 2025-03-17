@@ -14,3 +14,8 @@ El objetivo es tener un frontend donde podamos ingresar la palabra que queramos 
 ✅ Salario<br>
 ✅ Tipo de contrato<br>
 ✅ Tipo de jornada<br>
+
+‼️ Problemas con los que me he encontrado:
+- Al entrar a scrapear, sólo me traía las primeras 5 ofertas que aparecía en la página, pero yo veía que en realidad había 23. La solución fue medir el alto del contenedor de 1 oferta de trabajo, y hacer scroll lentamente usando ese heigh multiplicado por 4.
+- Cuando empecé a escribir el código, opté por usar Mozila Firefox, pero Infojobs enseguida se dio cuenta que estaba usando una automatización con selenium, así que decidí usar Chrome con las dependencias user_agent y undetected_chromedriver.
+- Cada vez que el scraping empezaba, me saltaba el modal de la politica de cookies, y esperaba a ser aceptado manualmente, si no lo aceptaba el script se detenía con error. Gracias a una compaeñera, entendí que ese 'click' también podría automatizar. 
