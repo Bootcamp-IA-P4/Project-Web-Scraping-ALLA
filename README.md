@@ -2,14 +2,15 @@
 
 ### En este tercer proyecto de Factoria F5, se me pide que realice un web scraping de una página web de mi gusto.
 
-Tras indagar y con el propósito de realizar un proyecto que me guste y además cumplir un propósito social, he decidido utilizar la página [datos.gob.es](datos.gob.es). Esta página web es un portal de datos abiertos y de España. 
+He decidido hacer scraping la página de Infojobs para ver las ofertas de trabajo disponibles según la palabra buscada.
 
-El propósito de scrapear será obtener datos económicos como el PIB, la inflación, el desempleo que ayude a la toma de decisiones para la persona que lo vaya a utilizar.
-
-🔹 El objetivo es extraer datos de indicadores como los anteriores mencionados y almacenarlos en una base de datos para su análisis y visualización mediante gráficos o tablas.
+El objetivo es tener un frontend donde podamos ingresar la palabra que queramos y que el scraper haga su trabajo y nos traiga todas las ofertas disponibles.
 
 🔹 Datos clave a obtener:<br>
-✅ PIB (Producto Interior Bruto) por trimestre o año.<br>
-✅ Inflación (índice de precios de consumo - IPC).<br>
-✅ Tasa de desempleo por región y sector económico.<br>
-✅ Evolución histórica de estos indicadores.<br>
+✅ Nombre de la oferta<br>
+✅ Empresa que lo sube<br>
+✅ Ciudad<br>
+✅ Modalidad<br>
+✅ Salario<br>
+✅ Tipo de contrato<br>
+✅ Tipo de jornada<br>
