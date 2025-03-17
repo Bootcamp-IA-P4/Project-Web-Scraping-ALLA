@@ -54,13 +54,15 @@ try:
         driver.execute_script("arguments[0].scrollIntoView();", offers[-1])
         time.sleep(2)
 
-    print(f"Total ofertas encontradas: {len(offers)}")
+    print(f"Total offers: {len(offers)}")
 
     # Extraemos información de cada oferta
     for index, offer in enumerate(offers):
         try:
             title = offer.find_element(By.CSS_SELECTOR, "h2.ij-OfferCardContent-description-title a").text
-            company = offer.find_element(By.CSS_SELECTOR, "h3.ij-OfferCardContent-description-subtitle a").text
+            company_element = offer.find_element(By.CSS_SELECTOR, "h3.ij-OfferCardContent-description-subtitle a")
+            company = company_element.text
+            company_url = company_element.get_attribute("href")  # Obtener URL de la empresa
             location = offer.find_element(By.CSS_SELECTOR, "li.ij-OfferCardContent-description-list-item").text
             
             try:
@@ -71,21 +73,22 @@ try:
             try:
                 work_mode = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item")[1].text
             except:
-                work_mode = "Sin especificar"
+                work_mode = "No disponible"
             
             try:
                 contract_type = offer.find_element(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile").text
             except:
-                contract_type = "No especificado"
+                contract_type = "No disponible"
             
             try:
                 workday = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile")[1].text
             except:
-                workday = "No especificado"
+                workday = "No disponible"
 
             print(f"Offer {index + 1}:")
             print(f"  Title: {title}")
             print(f"  Company: {company}")
+            print(f"  Company URL: {company_url}")  # Mostrar la URL de la empresa
             print(f"  Location: {location}")
             print(f"  Salary: {salary}")
             print(f"  Work mode: {work_mode}")
@@ -94,12 +97,12 @@ try:
             print("-" * 40)
         
         except Exception as e:
-            print(f"Error al extraer datos de la oferta {index + 1}: {e}")
+            print(f"Error scraping {index + 1}: {e}")
 
-    print("Búsqueda realizada con éxito.")
+    print("Scraping finished successfully!")
 
 except Exception as e:
-    print(f"Error al localizar el campo de búsqueda o el botón: {e}")
+    print(f"Error trying to find the input area or button: {e}")
 
-print("El navegador sigue abierto, puedes cerrarlo manualmente.")
+print("You can now close the app manually with ctrl + c")
 time.sleep(3600)
