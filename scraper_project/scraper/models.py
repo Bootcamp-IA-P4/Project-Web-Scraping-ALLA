@@ -14,5 +14,8 @@ class JobOffer(models.Model):
     workday = models.CharField(max_length=255, blank=True, null=True)
     search_date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        db_table = 'job_offers'
+
     def __str__(self):
         return f"{self.title} at {self.company}"

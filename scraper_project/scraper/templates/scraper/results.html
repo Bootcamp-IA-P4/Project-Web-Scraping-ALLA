@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <a href="{% url 'job_search' %}">Go back to search</a>
+</body>
+</html>
