@@ -17,7 +17,7 @@ driver = uc.Chrome(options=options)
 driver.get("https://www.infojobs.net/")
 time.sleep(4)
 
-# aceptamos cookies
+# Aceptamos cookies
 try:
     submit_button = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "didomi-notice-agree-button"))
@@ -27,7 +27,7 @@ try:
 except Exception as e:
     print(f"Error: {e} - Agree button not found or already clicked.")
 
-# empezamos búsqueda
+# Empezamos búsqueda
 try:
     search_box = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "palabra"))
@@ -47,18 +47,16 @@ try:
         offers = driver.find_elements(By.CSS_SELECTOR, "div.sui-AtomCard")
         total_offers = len(offers)
 
-        # si no hay nuevas ofertas, salimos del bucle
         if total_offers == previous_count:
             break
         previous_count = total_offers
 
-        # Scroll hasta la última oferta visible
         driver.execute_script("arguments[0].scrollIntoView();", offers[-1])
-        time.sleep(2)  # esperamos que carguen más ofertas
+        time.sleep(2)
 
     print(f"Total ofertas encontradas: {len(offers)}")
 
-    # extraemos información de cada oferta
+    # Extraemos información de cada oferta
     for index, offer in enumerate(offers):
         try:
             title = offer.find_element(By.CSS_SELECTOR, "h2.ij-OfferCardContent-description-title a").text
@@ -69,12 +67,30 @@ try:
                 salary = offer.find_element(By.CSS_SELECTOR, ".ij-OfferCardContent-description-salary-info").text
             except:
                 salary = "No disponible"
+            
+            try:
+                work_mode = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item")[1].text
+            except:
+                work_mode = "Sin especificar"
+            
+            try:
+                contract_type = offer.find_element(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile").text
+            except:
+                contract_type = "No especificado"
+            
+            try:
+                workday = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile")[1].text
+            except:
+                workday = "No especificado"
 
-            print(f"Oferta {index + 1}:")
-            print(f"  Título: {title}")
-            print(f"  Empresa: {company}")
-            print(f"  Ubicación: {location}")
-            print(f"  Salario: {salary}")
+            print(f"Offer {index + 1}:")
+            print(f"  Title: {title}")
+            print(f"  Company: {company}")
+            print(f"  Location: {location}")
+            print(f"  Salary: {salary}")
+            print(f"  Work mode: {work_mode}")
+            print(f"  Contract type: {contract_type}")
+            print(f"  Schedule: {workday}")
             print("-" * 40)
         
         except Exception as e:
