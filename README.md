@@ -38,3 +38,10 @@ TODO:
 http://127.0.0.1:8000/search => Realizar nuestra búsqueda
 http://127.0.0.1:8000/offers => Lista de ofertas de trabajo con nuestro término de búsqueda o todas las búsquedas que hemos rezliado (disponibles en base de datos)
 http://127.0.0.1:8000/error => Página de error cuando algo no sale bien
+
+
+Para comprobar los test unitarios/unittest usaremos los siguientes comandos:<br>
+``python manage.py test scraper.tests.test_models --keepdb``
+``python manage.py test scraper.tests.test_views --keepdb``
+
+Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva base de datos y así no dar errores.
