@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import undetected_chromedriver as uc
 from selenium.webdriver.chrome.options import Options
+from django.http import HttpResponse
 
 def job_search(request):
     if request.method == 'POST':
@@ -108,3 +109,11 @@ def job_list(request):
         offers = JobOffer.objects.all().order_by('-search_date')
 
     return render(request, 'scraper/job_list.html', {'offers': offers, 'search_term': search_term})
+
+
+def reset_search_data(request):
+    if request.method == 'POST':
+        JobOffer.objects.all().delete()
+
+        return redirect(reverse('job_list'))
+    return HttpResponse(status=405)

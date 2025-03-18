@@ -11,13 +11,26 @@
     <div class="container mx-auto mt-8 px-4">
         <h1 class="text-3xl font-semibold mb-6">Active Job Offers</h1>
         
-        {% if search_term %}
-            <p class="text-lg"><strong>Results for: </strong>{{ search_term }}</p>
-        {% else %}
-            <p class="text-lg">This is all your searches...</p>
-        {% endif %}
+        <div class="mb-6">
+            {% if search_term %}
+                <p class="text-lg"><strong>Results for: </strong>{{ search_term }}</p>
+            {% elif offers %}
+                <p class="text-lg">This is all your searches...</p>
+            {% endif %}
+        </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% if offers %}
+        <div class="mt-4">
+            <form method="POST" action="{% url 'reset_search_data' %}">
+                {% csrf_token %}
+                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300">
+                    Reset All Search Data
+                </button>
+            </form>
+        </div>
+        {% endif %}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
             {% for offer in offers %}
             <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
                 <div class="text-xl font-semibold mb-4">{{ offer.title }}</div>
@@ -43,9 +56,15 @@
             </div>
             {% endfor %}
         </div>
+
+        {% if not search_term and not offers %}
+        <p class="text-lg mt-6">You don't have any searches or job offers.</p>
+        {% endif %}
     </div>
 </body>
 </html>
+
+
 
 
 <!-- <div>
