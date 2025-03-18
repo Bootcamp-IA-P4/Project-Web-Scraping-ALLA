@@ -25,3 +25,9 @@ TODO:
 - No puedo traer la pagina web de la empresa, solo la url de Infojobs. Crear una nueva tabla que conecte con el id de la empresa, entrar a su url de linkedin mediante otro view nuevo, extraer la página web para luego poder mostrarlo en html.
 
 - Cuando se haga la llamada, quitar la aperura del navegador.
+
+
+> [!NOTE]
+>
+> Tuve un pequeño problema con Github porque dentro de mi repositorio local, creé sin querer otro repositorio lo que me daba conflictos a la hora de hacer commits. Alfinal pude borrar y desvincular dicho repositorio de mi local y terminé creando una nueva rama feature/scraping-v2 para seguir trabajando.
+>
