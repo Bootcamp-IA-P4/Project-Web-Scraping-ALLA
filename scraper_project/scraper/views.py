@@ -117,3 +117,6 @@ def reset_search_data(request):
 
         return redirect(reverse('job_list'))
     return HttpResponse(status=405)
+
+def error_page(request):
+    return render(request, 'scraper/error.html')

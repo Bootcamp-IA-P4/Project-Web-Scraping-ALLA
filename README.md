@@ -31,3 +31,10 @@ TODO:
 >
 > Tuve un pequeño problema con Github porque dentro de mi repositorio local, creé sin querer otro repositorio lo que me daba conflictos a la hora de hacer commits. Alfinal pude borrar y desvincular dicho repositorio de mi local y terminé creando una nueva rama feature/scraping-v2 para seguir trabajando.
 >
+
+
+**URLS DISPONIBLES**
+
+http://127.0.0.1:8000/search => Realizar nuestra búsqueda
+http://127.0.0.1:8000/offers => Lista de ofertas de trabajo con nuestro término de búsqueda o todas las búsquedas que hemos rezliado (disponibles en base de datos)
+http://127.0.0.1:8000/error => Página de error cuando algo no sale bien
