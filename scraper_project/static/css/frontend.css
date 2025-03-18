@@ -1,0 +1,44 @@
+@import url('colors.css');
+
+body {
+    background-color: var(--base-color);
+    height: 100vh;
+    display: flex;
+    justify-content: top;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--base-color);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(0, 0, 0, 1);
+}
+
+input[type="text"]:focus {
+    border-color: var(--hover-color);
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}

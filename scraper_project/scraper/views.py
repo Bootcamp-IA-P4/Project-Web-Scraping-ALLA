@@ -1,8 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
 import time
-from django.shortcuts import render
 from .models import JobOffer
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
