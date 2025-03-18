@@ -8,6 +8,21 @@
 
     <link rel="stylesheet" href="{% static 'css/frontend.css' %}?=v1">
 
+    <style>
+        .div-button-view-past-searches {
+            display: flex;
+            justify-content: center;
+        }
+        .button-view-past-searches{
+            margin-top: 20px;
+        }
+        .button-view-past-searches a{
+            color: white;
+            text-decoration: none;
+
+        }
+    </style>
+
 </head>
 <body>
     <div>
@@ -17,6 +32,12 @@
         {% csrf_token %}
         <input type="text" name="search_term" placeholder="Enter job title" required>
         <button type="submit">Search</button>
+
+        <div class="div-button-view-past-searches">
+            <button class="button-view-past-searches">
+                <a href="{% url 'job_list' %}">View past searches</a>
+            </button>
+        </div>
     </form>
 </body>
 </html>
