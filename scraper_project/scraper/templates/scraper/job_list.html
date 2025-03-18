@@ -8,6 +8,20 @@
         body {
             background-color: #e3ecf2;
         }
+
+        h1 {
+            text-align: center;
+        }
+
+        .text-lg {
+            text-align: center;
+        }
+
+        .buttons-in-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,20 +33,34 @@
         <div class="mb-6">
             {% if search_term %}
                 <p class="text-lg"><strong>Results for: </strong>{{ search_term }}</p>
+
             {% elif offers %}
                 <p class="text-lg">This is all your searches...</p>
             {% endif %}
         </div>
-        
+
         {% if offers %}
-        <div class="mt-4">
-            <form method="POST" action="{% url 'reset_search_data' %}">
-                {% csrf_token %}
-                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300">
-                    Reset All Search Data
-                </button>
-            </form>
+        <div class="buttons-in-list">
+            <div class="mt-4">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
+                    <a href="{% url 'job_search' %}">Search more</a>
+            </div>
+
+            <div class="mt-4">
+                <button class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300">
+                    <a href="{% url 'job_list' %}">View all searches</a>
+            </div>
+
+            <div class="mt-4">
+                <form method="POST" action="{% url 'reset_search_data' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300">
+                        Reset data
+                    </button>
+                </form>
+            </div>
         </div>
+
         {% endif %}
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
@@ -64,32 +92,11 @@
 
         {% if not search_term and not offers %}
         <p class="text-lg mt-6">You don't have any searches or job offers.</p>
+        <div class="mt-4">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
+                <a href="{% url 'job_search' %}">Search jobs</a>
+        </div>
         {% endif %}
     </div>
 </body>
 </html>
-
-
-
-
-<!-- <div>
-    <div>
-        <div>
-            {{ offer.title }}
-        </div>
-        <div>
-            <a href="{{ offer.company_url }}" target="_blank">{{ offer.company }}</a>
-        </div>
-    </div>
-    <div>
-        <div>
-            {{ offer.location }}
-            {{ offer.salary }}
-        </div>
-        <div>
-            {{ offer.work_mode }}
-            {{ offer.contract_type }}
-            {{ offer.workday }}
-        </div>
-    </div>
-</div> -->
