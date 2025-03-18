@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 import time
 from .models import JobOffer
 from selenium.webdriver.common.by import By
@@ -63,17 +64,16 @@ def job_search(request):
                         company_url = company_element.get_attribute("href")
                         location = offer.find_element(By.CSS_SELECTOR, "li.ij-OfferCardContent-description-list-item").text
                         
-                        # Validación para el salario
                         try:
                             salary = offer.find_element(By.CSS_SELECTOR, ".ij-OfferCardContent-description-salary-info").text
                         except:
-                            salary = "No disponible"  # Si no se encuentra el salario, asignamos "No disponible"
+                            salary = "No disponible"
 
                         work_mode = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item")[1].text
                         contract_type = offer.find_element(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile").text
                         workday = offer.find_elements(By.CSS_SELECTOR, ".ij-OfferCardContent-description-list-item--hideOnMobile")[1].text
 
-                        # Guardamos la oferta en la base de datos
+                        # guardamos la oferta en la base de datos con el search_term
                         JobOffer.objects.create(
                             title=title,
                             company=company,
@@ -82,14 +82,29 @@ def job_search(request):
                             salary=salary,
                             work_mode=work_mode,
                             contract_type=contract_type,
-                            workday=workday
+                            workday=workday,
+                            search_term=search_term  # guardamos el término de búsqueda
                         )
                     except Exception as e:
                         print(f"Error scraping offer: {e}")
 
                 driver.quit()
-                return render(request, 'scraper/results.html', {'message': 'Search completed!'})
+                return redirect(reverse('job_list') + f'?search_term={search_term}')
             except Exception as e:
                 driver.quit()
-                return render(request, 'scraper/results.html', {'error': f"Error: {e}"})
+                return render(request, 'scraper/error.html', {'error': f"Error: {e}"})
+    
     return render(request, 'scraper/search.html')
+
+
+def job_list(request):
+    search_term = request.GET.get('search_term')
+    
+    if search_term:
+        # filtramos las ofertas por término de búsqueda y la fecha actual
+        offers = JobOffer.objects.filter(search_term=search_term).order_by('-search_date')
+    else:
+        # si no hay término de búsqueda, mostrar todas las ofertas
+        offers = JobOffer.objects.all().order_by('-search_date')
+
+    return render(request, 'scraper/job_list.html', {'offers': offers, 'search_term': search_term})
