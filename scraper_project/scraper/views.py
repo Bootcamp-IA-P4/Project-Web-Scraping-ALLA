@@ -8,6 +8,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import undetected_chromedriver as uc
 from selenium.webdriver.chrome.options import Options
 from django.http import HttpResponse
+import logging
+from scraper.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 def job_search(request):
     if request.method == 'POST':
@@ -23,6 +27,7 @@ def job_search(request):
 
             driver = uc.Chrome(options=options)
             driver.get("https://www.infojobs.net/")
+            logger.info("Opened web to scrape")
             time.sleep(4)
 
             try:
@@ -30,8 +35,10 @@ def job_search(request):
                     EC.presence_of_element_located((By.ID, "didomi-notice-agree-button"))
                 )
                 submit_button.click()
+                logger.info("Cookies accepted.")
             except Exception as e:
                 print(f"Error: {e} - Agree button not found or already clicked.")
+                logger.error(f"Error: {e} - Agree button not found or already clicked.")
 
             try:
                 search_box = WebDriverWait(driver, 10).until(
@@ -88,12 +95,16 @@ def job_search(request):
                         )
                     except Exception as e:
                         print(f"Error scraping offer: {e}")
+                        logger.error(f"Error scraping offer: {e}")
 
                 driver.quit()
+                logger.info("Scraping finished")
                 return redirect(reverse('job_list') + f'?search_term={search_term}')
             except Exception as e:
                 driver.quit()
+                logger.error(f"Error: {e}")
                 return render(request, 'scraper/error.html', {'error': f"Error: {e}"})
+
     
     return render(request, 'scraper/search.html')
 
@@ -114,6 +125,7 @@ def job_list(request):
 def reset_search_data(request):
     if request.method == 'POST':
         JobOffer.objects.all().delete()
+        logger.warning("All data deleted")
 
         return redirect(reverse('job_list'))
     return HttpResponse(status=405)
