@@ -1,0 +1,396 @@
+2025-03-20 11:05:12,774 - ERROR - exception - response_for_exception - Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-20 11:05:12,803 - WARNING - log - log_response - Bad Request: /
+2025-03-20 11:05:12,841 - ERROR - exception - response_for_exception - Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/Users/trabajo/Documents/Project-Web-Scraping/.venv/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2025-03-20 11:05:12,856 - WARNING - log - log_response - Bad Request: /favicon.ico
+2025-03-20 11:05:29,995 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper_project/settings.py changed, reloading.
+2025-03-20 11:05:40,445 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper_project/settings.py changed, reloading.
+2025-03-20 11:05:41,765 - WARNING - log - log_response - Not Found: /
+2025-03-20 11:05:41,783 - WARNING - log - log_response - Not Found: /favicon.ico
+2025-03-20 11:05:56,016 - INFO - patcher - patch_exe - patching driver executable /Users/trabajo/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2025-03-20 11:06:02,980 - INFO - views - job_search - Opened web to scrape
+2025-03-20 11:06:07,120 - INFO - views - job_search - Cookies accepted.
+2025-03-20 11:06:24,400 - INFO - views - job_search - Scraping finished
+2025-03-20 11:06:35,649 - WARNING - views - reset_search_data - All data deleted
+2025-03-20 11:06:36,098 - WARNING - views - reset_search_data - All data deleted
+2025-03-20 11:11:01,812 - WARNING - log - log_response - Not Found: /
+2025-03-20 11:11:01,849 - WARNING - log - log_response - Not Found: /favicon.ico
+2025-03-20 11:11:17,224 - INFO - patcher - patch_exe - patching driver executable /Users/trabajo/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2025-03-20 11:11:20,485 - INFO - views - job_search - Opened web to scrape
+2025-03-20 11:11:24,583 - INFO - views - job_search - Cookies accepted.
+2025-03-20 11:11:41,554 - INFO - views - job_search - Scraping finished
+2025-03-20 11:16:13,302 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 11:55:55,453 - WARNING - log - log_response - Not Found: /
+2025-03-20 11:56:02,679 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 47, in binary_paths
+    args = [str(self._get_binary())] + args
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 94, in _get_binary
+    raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+selenium.common.exceptions.WebDriverException: Message: Unsupported platform/architecture combination: linux/aarch64
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 30, in job_search
+    driver = webdriver.Firefox(options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:00:22,810 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:00:26,098 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 33, in job_search
+    service = Service(executable_path=geckodriver_path)
+              ^^^^^^^
+NameError: name 'Service' is not defined
+2025-03-20 12:00:44,604 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:00:47,898 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 47, in binary_paths
+    args = [str(self._get_binary())] + args
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 94, in _get_binary
+    raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+selenium.common.exceptions.WebDriverException: Message: Unsupported platform/architecture combination: linux/aarch64
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 37, in job_search
+    driver = webdriver.Firefox(options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:02:56,147 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:02:56,182 - WARNING - log - log_response - Not Found: /favicon.ico
+2025-03-20 12:03:07,501 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 47, in binary_paths
+    args = [str(self._get_binary())] + args
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 94, in _get_binary
+    raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+selenium.common.exceptions.WebDriverException: Message: Unsupported platform/architecture combination: linux/aarch64
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 37, in job_search
+    driver = webdriver.Firefox(options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:05:28,132 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:05:36,843 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 47, in binary_paths
+    args = [str(self._get_binary())] + args
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 94, in _get_binary
+    raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+selenium.common.exceptions.WebDriverException: Message: Unsupported platform/architecture combination: linux/aarch64
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 37, in job_search
+    driver = webdriver.Firefox(options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:15:15,969 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:15:23,798 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 24, in job_search
+    geckodriver_autoinstaller.install()
+  File "/usr/local/lib/python3.11/site-packages/geckodriver_autoinstaller/__init__.py", line 15, in install
+    geckodriver_filepath = utils.download_geckodriver(cwd)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/geckodriver_autoinstaller/utils.py", line 174, in download_geckodriver
+    url = get_geckodriver_url()
+          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_geckodriver_url() missing 1 required positional argument: 'version'
+2025-03-20 12:16:12,840 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:16:18,943 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 24, in job_search
+    geckodriver_autoinstaller.install(version="0.30.0")
+TypeError: install() got an unexpected keyword argument 'version'
+2025-03-20 12:17:10,161 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:17:15,085 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 24, in job_search
+    geckodriver_autoinstaller.install(version="0.30.0")
+TypeError: install() got an unexpected keyword argument 'version'
+2025-03-20 12:17:21,799 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:17:24,468 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 24, in job_search
+    geckodriver_autoinstaller.install()
+  File "/usr/local/lib/python3.11/site-packages/geckodriver_autoinstaller/__init__.py", line 15, in install
+    geckodriver_filepath = utils.download_geckodriver(cwd)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/geckodriver_autoinstaller/utils.py", line 174, in download_geckodriver
+    url = get_geckodriver_url()
+          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_geckodriver_url() missing 1 required positional argument: 'version'
+2025-03-20 12:22:41,089 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:22:47,794 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 47, in binary_paths
+    args = [str(self._get_binary())] + args
+                ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py", line 94, in _get_binary
+    raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+selenium.common.exceptions.WebDriverException: Message: Unsupported platform/architecture combination: linux/aarch64
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 40, in job_search
+    driver = webdriver.Firefox(options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:23:46,060 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:24:13,271 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+2025-03-20 12:24:17,940 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 64, in _binary_paths
+    raise ValueError(f"The path is not a valid file: {path}")
+ValueError: The path is not a valid file: /usr/local/bin/geckodriver
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 40, in job_search
+    driver = webdriver.Firefox(service=service, options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:24:27,894 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 64, in _binary_paths
+    raise ValueError(f"The path is not a valid file: {path}")
+ValueError: The path is not a valid file: /usr/local/bin/geckodriver
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 40, in job_search
+    driver = webdriver.Firefox(service=service, options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:29:46,385 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:29:54,563 - ERROR - log - log_response - Internal Server Error: /search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 64, in _binary_paths
+    raise ValueError(f"The path is not a valid file: {path}")
+ValueError: The path is not a valid file: /usr/local/bin/geckodriver
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/scraper_project/scraper/views.py", line 40, in job_search
+    driver = webdriver.Firefox(service=service, options=options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py", line 57, in __init__
+    if finder.get_browser_path():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2025-03-20 12:38:10,396 - INFO - autoreload - trigger_reload - /app/scraper_project/scraper/views.py changed, reloading.
+ - Opened web to scrape
+2025-03-20 12:33:37,060 - INFO - views - job_search - Cookies accepted.
+2025-03-20 12:33:42,916 - INFO - views - job_search - Scraping finished
+2025-03-20 12:33:51,487 - WARNING - views - reset_search_data - All data deleted
+2025-03-20 12:34:06,497 - INFO - views - job_search - Opened web to scrape
+2025-03-20 12:34:20,498 - INFO - views - job_search - Cookies accepted.
+2025-03-20 12:34:38,734 - INFO - views - job_search - Scraping finished
+2025-03-20 12:35:12,251 - WARNING - log - log_response - Not Found: /
+2025-03-20 12:35:21,951 - INFO - views - job_search - Opened web to scrape
+2025-03-20 12:35:36,506 - INFO - views - job_search - Cookies accepted.
+2025-03-20 12:35:54,363 - INFO - views - job_search - Scraping finished
+2025-03-20 12:36:07,253 - WARNING - views - reset_search_data - All data deleted
+2025-03-20 12:38:10,369 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper/views.py changed, reloading.

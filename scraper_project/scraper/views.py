@@ -5,11 +5,14 @@ from .models import JobOffer
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import undetected_chromedriver as uc
-from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 from django.http import HttpResponse
 import logging
 from scraper.logging_config import get_logger
+import geckodriver_autoinstaller
+
 
 logger = get_logger(__name__)
 
@@ -21,11 +24,15 @@ def job_search(request):
             options.add_argument("--disable-gpu")
             options.add_argument("--no-sandbox")
             options.add_argument("--disable-extensions")
-
+            
             user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-            options.add_argument(f"user-agent={user_agent}")
+            options.set_preference("general.useragent.override", user_agent)
 
-            driver = uc.Chrome(options=options)
+            geckodriver_path = '/usr/local/bin/geckodriver'
+
+            service = Service(executable_path=geckodriver_path)
+
+            driver = webdriver.Firefox(service=service, options=options)
             driver.get("https://www.infojobs.net/")
             logger.info("Opened web to scrape")
             time.sleep(4)

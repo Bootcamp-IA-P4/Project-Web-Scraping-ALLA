@@ -19,6 +19,7 @@ exceptiongroup==1.2.2
 Flask==3.1.0
 frozenlist==1.5.0
 gotrue==2.11.4
+geckodriver-autoinstaller==0.0.3
 h11==0.14.0
 h2==4.2.0
 hpack==4.1.0
@@ -39,7 +40,7 @@ packaging==24.2
 pandas==2.2.3
 postgrest==0.19.3
 propcache==0.3.0
-psycopg2==2.9.10
+psycopg2-binary==2.9.3
 pydantic==2.10.6
 pydantic_core==2.27.2
 PySocks==1.7.1
