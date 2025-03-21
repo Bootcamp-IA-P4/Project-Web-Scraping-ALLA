@@ -394,3 +394,27 @@ selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driv
 2025-03-20 12:35:54,363 - INFO - views - job_search - Scraping finished
 2025-03-20 12:36:07,253 - WARNING - views - reset_search_data - All data deleted
 2025-03-20 12:38:10,369 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper/views.py changed, reloading.
+2025-03-21 13:13:14,773 - WARNING - log - log_response - Not Found: /
+2025-03-21 13:13:25,802 - INFO - views - job_search - Opened web to scrape
+2025-03-21 13:13:40,057 - ERROR - views - job_search - Error: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:527:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:136:16
+ - Agree button not found or already clicked.
+2025-03-21 13:13:50,740 - ERROR - views - job_search - Error: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:197:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:527:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:136:16
+
+2025-03-21 13:14:05,485 - INFO - views - job_search - Opened web to scrape
+2025-03-21 13:14:19,021 - INFO - views - job_search - Cookies accepted.
+2025-03-21 13:14:37,090 - INFO - views - job_search - Scraping finished
+2025-03-21 13:15:17,156 - INFO - autoreload - trigger_reload - /Users/trabajo/Documents/Project-Web-Scraping/scraper_project/scraper/views.py changed, reloading.
+2025-03-21 13:15:27,413 - INFO - views - job_search - Opened web to scrape
+2025-03-21 13:15:29,766 - INFO - views - job_search - Captcha button clicked.
+2025-03-21 13:15:37,112 - INFO - views - job_search - Cookies accepted.
+2025-03-21 13:15:55,434 - INFO - views - job_search - Scraping finished

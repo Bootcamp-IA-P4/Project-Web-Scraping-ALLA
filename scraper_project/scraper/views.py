@@ -11,8 +11,6 @@ from selenium.webdriver.firefox.service import Service
 from django.http import HttpResponse
 import logging
 from scraper.logging_config import get_logger
-import geckodriver_autoinstaller
-
 
 logger = get_logger(__name__)
 
@@ -28,13 +26,20 @@ def job_search(request):
             user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             options.set_preference("general.useragent.override", user_agent)
 
-            geckodriver_path = '/usr/local/bin/geckodriver'
-
-            service = Service(executable_path=geckodriver_path)
+            service = Service('/usr/local/bin/geckodriver')
 
             driver = webdriver.Firefox(service=service, options=options)
+            
             driver.get("https://www.infojobs.net/")
             logger.info("Opened web to scrape")
+            try:
+                captcha_button = WebDriverWait(driver, 20).until(
+                    EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'Hacer clic para comprobar')]"))
+                )
+                captcha_button.click()
+                logger.info("Captcha button clicked.")
+            except Exception as e:
+                logger.error(f"Error clicking captcha button: {e}")
             time.sleep(4)
 
             try:
