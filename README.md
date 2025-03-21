@@ -45,3 +45,10 @@ Para comprobar los test unitarios/unittest usaremos los siguientes comandos:<br>
 ``python manage.py test scraper.tests.test_views --keepdb``
 
 Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva base de datos y así no dar errores.
+
+
+
+DESCARGAR LA IMAGEN DESDE DOCKER HUB:
+
+[MI URL](https://hub.docker.com/r/allaharuty/scraper)
+`docker pull allaharuty/scraper`

@@ -40,7 +40,7 @@ packaging==24.2
 pandas==2.2.3
 postgrest==0.19.3
 propcache==0.3.0
-psycopg2-binary==2.9.3
+psycopg2-binary==2.9.9
 pydantic==2.10.6
 pydantic_core==2.27.2
 PySocks==1.7.1

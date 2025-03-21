@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: scraper_web
+    command: python scraper_project/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DISPLAY=:99
+      - DB_NAME=${dbname}
+      - DB_USER=${user}
+      - DB_PASSWORD=${password}
+      - DB_HOST=${host}
+      - DB_PORT=${port}
+    networks:
+      - scraper_network
+    env_file:
+      - .env
+
+  db:
+    image: postgres:13
+    container_name: scraper_db
+    environment:
+      POSTGRES_DB: ${dbname}
+      POSTGRES_USER: ${user}
+      POSTGRES_PASSWORD: ${password}
+      POSTGRES_HOST: ${host}
+      POSTGRES_PORT: ${port}
+    networks:
+      - scraper_network
+
+networks:
+  scraper_network:
+    driver: bridge
