@@ -31,7 +31,7 @@ def job_search(request):
             time.sleep(4)
 
             try:
-                submit_button = WebDriverWait(driver, 10).until(
+                submit_button = WebDriverWait(driver, 7).until(
                     EC.presence_of_element_located((By.ID, "didomi-notice-agree-button"))
                 )
                 submit_button.click()
@@ -132,3 +132,7 @@ def reset_search_data(request):
 
 def error_page(request):
     return render(request, 'scraper/error.html')
+
+
+def redirect_to_search(request):
+    return redirect('search/')
