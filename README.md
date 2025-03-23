@@ -16,25 +16,47 @@ El objetivo del proyecto es crear un scraper que recoja las ofertas de trabajo d
 - Tipo de contrato
 - Tipo de jornada
 
-### Problemas encontrados y soluciones
+## ¿Cómo descargar y probar mi proyecto?
 
-‼️ **Problemas encontrados**:
-1. **Problema con el número de ofertas**: Inicialmente, el scraper solo traía las primeras 5 ofertas, aunque la página mostraba 23. La solución fue calcular la altura del contenedor de una oferta de trabajo y realizar un scroll lento usando esa altura multiplicada por 4 (la cantidad que se ve por defecto por pantalla).
-   
-2. **Detección de automatización**: Al usar Mozilla Firefox, InfoJobs detectó que estaba utilizando Selenium, por lo que decidí cambiar a Chrome con las dependencias `user_agent` y `undetected_chromedriver` para evitar la detección.
+### Paso 1:
+Descargar mi repositorio en tu local:<br>
+```bash
+git clone https://github.com/alharuty/Project-Web-Scraping.git
+```
 
-3. **Modal de cookies**: El script se detenía si no aceptaba el modal de cookies manualmente. Gracias a una compañera, entendí que también podía automatizar ese 'click' para aceptar las cookies.
+### Paso 2:
+Entra en el repositorio:<br>
+```bash
+cd Project-Web-Scraping
+```
 
-4. **Dockerización**: Al intentar dockerizar el proyecto con Chrome, encontré algunos errores. Por eso, opté por dockerizar la versión con Firefox utilizando el argumento `--headless`, pero debido a que InfoJobs detecta el scraping en Firefox, mi imagen no puede realizar búsquedas, solo muestra el historial de búsquedas anteriores en caso de que exista.
+### Paso 3: 
+Crea un entorno virtual y actívalo:<br>
+```bash 
+python3 -m venv .venv
+```
+```bash
+source .venv/bin/activate
+````
 
-### Próximas mejoras
+### Paso 4:
+Descarga todas las dependencias necesarias:<br>
+```bash
+pip install -r requirements.txt
+```
 
-- Actualmente no puedo obtener la página web de la empresa, solo la URL de InfoJobs. Mi plan es crear una nueva tabla que conecte con el ID de la empresa, extraer la URL de su LinkedIn mediante otro **view** nuevo, y así obtener su página web para luego mostrarla en el frontend en formato HTML.
-- Añadir filtros en la página offers, para que el usuario pueda filtrar por salario, por ciudad, etc.
-- Añadir gráfico que muestre una media de salarios.
+### Paso 5:
+Renombra el archivo .env.example por .env , e inserta los datos que te he dado.
 
-> **Nota**:  
-> Tuve un pequeño problema con Github, ya que dentro de mi repositorio local creé sin querer otro repositorio, lo que me generaba conflictos a la hora de hacer commits. Finalmente, pude borrar y desvincular el repositorio local y creé una nueva rama `feature/scraping-v2` para continuar trabajando.
+### Paso 6:
+Pon en marcha el proyecto:<br>
+```bash
+pythons scraper_project/manage.py runserver
+```
+
+### Paso 7: 
+Entra en http://127.0.0.1:8000/ y realiza tu búsqueda de trabajo.
+
 
 ### URLs disponibles
 
@@ -51,8 +73,30 @@ python manage.py test scraper.tests.test_models --keepdb
 python manage.py test scraper.tests.test_views --keepdb
 ```
 
-
 Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva base de datos y así no dar errores.
+
+
+### Problemas encontrados y soluciones
+
+‼️ **Problemas encontrados**:
+1. **Problema con el número de ofertas**: Inicialmente, el scraper solo traía las primeras 5 ofertas, aunque la página mostraba 23. La solución fue calcular la altura del contenedor de una oferta de trabajo y realizar un scroll lento usando esa altura multiplicada por 4 (la cantidad que se ve por defecto por pantalla).
+   
+2. **Detección de automatización**: Al usar Mozilla Firefox, InfoJobs detectó que estaba utilizando Selenium, por lo que decidí cambiar a Chrome con las dependencias `user_agent` y `undetected_chromedriver` para evitar la detección.
+
+3. **Modal de cookies**: El script se detenía si no aceptaba el modal de cookies manualmente. Gracias a una compañera, entendí que también podía automatizar ese 'click' para aceptar las cookies.
+
+4. **Dockerización**: Al intentar dockerizar el proyecto con Chrome, encontré algunos errores. Por eso, opté por dockerizar la versión con Firefox utilizando el argumento `--headless`, pero debido a que InfoJobs detecta el scraping en Firefox, mi imagen no puede realizar búsquedas, solo muestra el historial de búsquedas anteriores en caso de que exista.
+
+### Próximas mejoras
+
+- Actualmente no puedo obtener la página web de la empresa, solo la URL de InfoJobs. Mi plan es crear una nueva tabla que conecte con el ID de la empresa, entrar a la url de Infojobs de la empresa, extraer su página web principal mediante otro **view** nuevo, y mostrarla en el frontend en formato HTML.
+- Añadir filtros en la página offers, para que el usuario pueda filtrar por salario, por ciudad, etc.
+- Añadir gráfico que muestre una media de salarios.
+
+> **Nota**:  
+> Tuve un pequeño problema con Github, ya que dentro de mi repositorio local creé sin querer otro repositorio, lo que me generaba conflictos a la hora de hacer commits. Finalmente, pude borrar y desvincular el repositorio local y creé una nueva rama `feature/scraping-v2` para continuar trabajando.
+
+
 
 
 ### Diagrama de actividad
@@ -64,34 +108,7 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 [Haz click aquí para ver la Demostración](https://www.canva.com/design/DAGijP_bTMA/DbQRFCVzr6SFNPLYF_K7Jw/edit?utm_content=DAGijP_bTMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
-## ¿Cómo descargar y probar mi proyecto?
 
-### Paso 1:
-Descargar mi repositorio en tu local:<br>
-`git clone https://github.com/alharuty/Project-Web-Scraping.git`
-
-### Paso 2:
-Entra en el repositorio:<br>
-`cd Project-Web-Scraping`
-
-### Paso 3: 
-Crea un entorno virtual y actívalo:<br>
-`python3 -m venv .venv`<br>
-`source .venv/bin/activate`
-
-### Paso 4:
-Descarga todas las dependencias necesarias:<br>
-`pip install -r requirements.txt`
-
-### Paso 5:
-Renombra el archivo .env.example por .env , e inserta los datos que te he dado.
-
-### Paso 6:
-Pon en marcha el proyecto:<br>
-`pythons scraper_project/manage.py runserver`
-
-### Paso 7: 
-Entra en http://127.0.0.1:8000/ y realiza tu búsqueda de trabajo.
 
 
 ## ¿Cómo descargar y usar mi imagen desde Docker Hub?
