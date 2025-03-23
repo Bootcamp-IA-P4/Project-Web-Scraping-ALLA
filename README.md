@@ -63,7 +63,38 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 
 [Haz click aquí para ver la Demostración](https://www.canva.com/design/DAGijP_bTMA/DbQRFCVzr6SFNPLYF_K7Jw/edit?utm_content=DAGijP_bTMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-### Usar mi imagen desde Docker Hub
+
+## ¿Cómo descargar y probar mi proyecto?
+
+### Paso 1:
+Descargar mi repositorio en tu local:<br>
+`git clone https://github.com/alharuty/Project-Web-Scraping.git`
+
+### Paso 2:
+Entra en el repositorio:<br>
+`cd Project-Web-Scraping`
+
+### Paso 3: 
+Crea un entorno virtual y actívalo:<br>
+`python3 -m venv .venv`<br>
+`source .venv/bin/activate`
+
+### Paso 4:
+Descarga todas las dependencias necesarias:<br>
+`pip install -r requirements.txt`
+
+### Paso 5:
+Renombra el archivo .env.example por .env , e inserta los datos que te he dado.
+
+### Paso 6:
+Pon en marcha el proyecto:<br>
+`pythons scraper_project/manage.py runserver`
+
+### Paso 7: 
+Entra en http://127.0.0.1:8000/ y realiza tu búsqueda de trabajo.
+
+
+## ¿Cómo descargar y usar mi imagen desde Docker Hub?
 
 Para poder ejecutar este proyecto mediante Docker, sigue estos pasos:
 
@@ -71,33 +102,33 @@ Para poder ejecutar este proyecto mediante Docker, sigue estos pasos:
 
 - Además, abre **Docker Desktop** y asegúrate de que Docker esté en ejecución.
 
-#### Descargar la imagen de Docker
+### Descargar la imagen de Docker
 Para descargar la imagen del proyecto desde Docker Hub, abre tu terminal y ejecuta el siguiente comando:
 
 ```bash
 docker pull allaharuty/scraper:latest
 ```
 
-#### Ejecutar el contenedor:
+### Ejecutar el contenedor:
 Una vez descargada la imagen, puedes ejecutar el contenedor con el siguiente comando:
 
 ```bash
 docker run -d --name scraper allaharuty/scraper:latest
 ```
 
-#### Verificar el funcionamiento:
+### Verificar el funcionamiento:
 Para comprobar que el contenedor se está ejecutando correctamente, puedes ver los logs con el siguiente comando:
 ```bash
 docker logs scraper
 ```
 
-#### Detener después de usar:
+### Detener después de usar:
 Cuando hayas terminado de usarlo, puedes detener el contenedor con:
 ```bash
 docker stop scraper
 ```
 
-#### Eliminar después de detener:
+### Eliminar después de detener:
 Y si deseas eliminar el contenedor después de detenerlo, ejecuta:
 ```bash
 docker rm scraper
