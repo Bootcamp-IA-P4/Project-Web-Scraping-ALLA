@@ -61,10 +61,7 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 
 ### Demo del proyecto
 
-![Demo del proyecto 1](images/DEMO-WEB-SCRAPER.gif)
-![Demo del proyecto 2](images/DEMO-WEB-SCRAPER-2.gif)
-![Demo del proyecto 3](images/DEMO-WEB-SCRAPER-3.gif)
-![Demo del proyecto 4](images/DEMO-WEB-SCRAPER-4.gif)
+Demo here...
 
 ### Usar mi imagen desde Docker Hub
 
