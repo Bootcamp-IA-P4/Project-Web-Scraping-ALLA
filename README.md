@@ -94,7 +94,7 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 - Añadir gráfico que muestre una media de salarios.
 <br>
 
-> [!NOTE]:
+> [!NOTE]
 >
 > Tuve un pequeño problema con Github, ya que dentro de mi repositorio local creé sin querer otro repositorio, lo que me generaba conflictos a la hora de hacer commits. Finalmente, pude borrar y desvincular el repositorio local y creé una nueva rama `feature/scraping-v2` para continuar trabajando.
 
