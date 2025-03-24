@@ -51,7 +51,7 @@ Renombra el archivo .env.example por .env , e inserta los datos que te he dado.
 ### Paso 6:
 Pon en marcha el proyecto:<br>
 ```bash
-pythons scraper_project/manage.py runserver
+python scraper_project/manage.py runserver
 ```
 
 ### Paso 7: 

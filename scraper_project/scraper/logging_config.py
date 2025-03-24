@@ -5,7 +5,7 @@ def setup_logging():
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s',
         handlers=[
-            logging.FileHandler('logs.log', mode='a', encoding='utf-8'),  # guardamos logs en logs.log
+            logging.FileHandler('../logs.log', mode='a', encoding='utf-8'),  # guardamos logs en logs.log
         ]
     )
 
