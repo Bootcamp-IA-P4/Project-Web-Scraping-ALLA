@@ -29,10 +29,8 @@ SECRET_KEY = 'django-insecure-d!3mvq%o0!(&)*r^lle!$3ankz*wt7r$&+2j3p-gv1)7d9ywv5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '0.0.0.0',
-    '127.0.0.1'
-]
+ALLOWED_HOSTS = ["*", "127.0.0.1", "localhost"]
+
 
 # Application definition
 
@@ -83,11 +81,11 @@ WSGI_APPLICATION = 'scraper_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('dbname'),
-        'USER': os.getenv('user'),
-        'PASSWORD': os.getenv('password'),
-        'HOST': os.getenv('host'),
-        'PORT': os.getenv('port')
+        'NAME': os.getenv('DBNAME', 'postgres'),
+        'USER': os.getenv('USER', 'postgres'),
+        'PASSWORD': os.getenv('PASSWORD', ''),
+        'HOST': os.getenv('HOST', 'aws-0-eu-central-1.pooler.supabase.com'),
+        'PORT': os.getenv('PORT', '6543'),
     }
 }
 
