@@ -16,6 +16,36 @@ El objetivo del proyecto es crear un scraper que recoja las ofertas de trabajo d
 - Tipo de contrato
 - Tipo de jornada
 
+
+Para llevar a cabo este proyecto he usado las siguientes herramientas:
+- Lenguaje Python
+- Librería selenium para scrapear
+- Chromedriver para scrapear en Google Chrome, y Geckodriver para scrapear en Firefox
+- Supabase.com para base de datos postgres
+- Librería logging de Python para la trazabilidad de logs y errores
+- Test unitarios para el modelo y para los views, en scraper > tests.py
+- Para evitar baneos de IP, he usado user_agent y undetected_chromedriver
+- He usado Tailwind para el frontend
+- Imagen Docker subido a Docker Hub para poder descargar de forma fácil
+- Trello para la organización de mi proyecto
+<br>
+
+En este proyecto, he decidido hacer todo en inglés (excepto el README), los nombres de variables, github commits, notas en trello, tabla base de datos, etc.
+<br>
+![Puedes ver las notas que he tomado en Trello durante el proyecto a medida que avanzaba o me encontraba con algún probelema](images/captura-trello.png)
+
+> [!NOTE]
+>
+> En las tarjetas de Trello, puedes ver que hay etiquetas por colores, desde nivel básico hasta nivel avanzado según los requisitios de este proyecto.
+
+> [!NOTE]
+> 
+> Encontrarás varias ramas en mi repositorio github:
+> - main: rama principal, actualizado y funcionando
+> - feature/scraping-v1: rama donde empecé a hacer el código
+> - feature/scraping-v2: rama de la última versión, donde he ido trabajando y mergeandolo todo en main a medida que funcionaba todo de forma correcta
+> - feature/docker: rama donde he integrado Docker
+
 ## ¿Cómo descargar y probar mi proyecto?
 
 ### Paso 1:
@@ -64,12 +94,23 @@ Entra en http://127.0.0.1:8000/ y realiza tu búsqueda de trabajo.
 - **Ofertas**: [http://127.0.0.1:8000/offers](http://127.0.0.1:8000/offers) - Muestra las ofertas de trabajo relacionadas con tu búsqueda o todas las búsquedas realizadas (disponibles en la base de datos).
 - **Error**: [http://127.0.0.1:8000/error](http://127.0.0.1:8000/error) - Página de error cuando algo no sale bien.
 
+
+### Diagrama de actividad
+
+![Diagrama de actividad del proyecto](./images/Activity-Diagram-Web-Scraper.png)
+
+### Demo del proyecto
+
+[Haz click aquí para ver la Demostración](https://www.canva.com/design/DAGijP_bTMA/DbQRFCVzr6SFNPLYF_K7Jw/edit?utm_content=DAGijP_bTMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ### Comandos para ejecutar tests unitarios
 
 Para ejecutar los tests unitarios, usa los siguientes comandos:
 
 ```bash
 python scraper_project/manage.py test scraper.tests.test_models --keepdb
+```
+```bash
 python scraper_project/manage.py test scraper.tests.test_views --keepdb
 ```
 
@@ -92,6 +133,10 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 - Actualmente no puedo obtener la página web de la empresa, solo la URL de InfoJobs. Mi plan es crear una nueva tabla que conecte con el ID de la empresa, entrar a la url de Infojobs de la empresa, extraer su página web principal mediante otro **view** nuevo, y mostrarla en el frontend en formato HTML.
 - Añadir filtros en la página offers, para que el usuario pueda filtrar por salario, por ciudad, etc.
 - Añadir gráfico que muestre una media de salarios.
+- Structura POO.
+- Automatizar script con Cronjob.
+- Traducir el README a inglés.
+- Scrapear las paginas >1.
 <br>
 
 > [!NOTE]
@@ -99,18 +144,12 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 > Tuve un pequeño problema con Github, ya que dentro de mi repositorio local creé sin querer otro repositorio, lo que me generaba conflictos a la hora de hacer commits. Finalmente, pude borrar y desvincular el repositorio local y creé una nueva rama `feature/scraping-v2` para continuar trabajando.
 
 
-### Diagrama de actividad
-
-![Diagrama de actividad del proyecto](./images/Activity-Diagram-Web-Scraper.png)
-
-### Demo del proyecto
-
-[Haz click aquí para ver la Demostración](https://www.canva.com/design/DAGijP_bTMA/DbQRFCVzr6SFNPLYF_K7Jw/edit?utm_content=DAGijP_bTMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-
 
 > [!NOTE]
 >
 > Es cierto que el la imagen de mi Docker no funciona correctamente para hacer búsquedas, pero como sí que devuelve la lista de las anteriores búsquedas desde la base de datos, he querido dejarlo subido para mostrar que he podido subirlo, y posteriormente podré corregir el error.
+
+[Link a la imágen de Docker](https://hub.docker.com/r/allaharuty/scraper-v2)
 
 ## ¿Cómo descargar y usar mi imagen desde Docker Hub?
 
