@@ -30,7 +30,7 @@ Para llevar a cabo este proyecto he usado las siguientes herramientas:
 - Trello para la organización de mi proyecto
 <br>
 
-En este proyecto, he decidido hacer todo en inglés (excepto el README), los nombres de variables, github commits, notas en trello, tabla base de datos, etc.
+En este proyecto, he decidido hacer todo en inglés (excepto el README); los nombres de variables, github commits, notas en trello, tabla base de datos, etc.
 <br>
 ![Puedes ver las notas que he tomado en Trello durante el proyecto a medida que avanzaba o me encontraba con algún probelema](images/captura-trello.png)
 
@@ -41,10 +41,10 @@ En este proyecto, he decidido hacer todo en inglés (excepto el README), los nom
 > [!NOTE]
 > 
 > Encontrarás varias ramas en mi repositorio github:
-> - main: rama principal, actualizado y funcionando
-> - feature/scraping-v1: rama donde empecé a hacer el código
-> - feature/scraping-v2: rama de la última versión, donde he ido trabajando y mergeandolo todo en main a medida que funcionaba todo de forma correcta
-> - feature/docker: rama donde he integrado Docker
+> - **main**: rama principal, actualizado y funcionando
+> - **feature/scraping-v1**: rama donde empecé a hacer el código
+> - **feature/scraping-v2**: rama de la última versión, donde he ido trabajando y mergeandolo todo en main a medida que funcionaba todo de forma correcta
+> - **feature/docker**: rama donde he integrado Docker
 
 ## ¿Cómo descargar y probar mi proyecto?
 
