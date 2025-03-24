@@ -123,30 +123,30 @@ Para poder ejecutar este proyecto mediante Docker, sigue estos pasos:
 Para descargar la imagen del proyecto desde Docker Hub, abre tu terminal y ejecuta el siguiente comando:
 
 ```bash
-docker pull allaharuty/scraper:latest
+docker pull allaharuty/scraper-v2:latest
 ```
 
 ### Ejecutar el contenedor:
 Una vez descargada la imagen, puedes ejecutar el contenedor con el siguiente comando:
 
 ```bash
-docker run -d --name scraper allaharuty/scraper:latest
+docker run -d --name scraper allaharuty/scraper-v2:latest
 ```
 
 ### Verificar el funcionamiento:
 Para comprobar que el contenedor se está ejecutando correctamente, puedes ver los logs con el siguiente comando:
 ```bash
-docker logs scraper
+docker logs scraper-v2
 ```
 
 ### Detener después de usar:
 Cuando hayas terminado de usarlo, puedes detener el contenedor con:
 ```bash
-docker stop scraper
+docker stop scraper-v2
 ```
 
 ### Eliminar después de detener:
 Y si deseas eliminar el contenedor después de detenerlo, ejecuta:
 ```bash
-docker rm scraper
+docker rm scraper-v2
 ```
