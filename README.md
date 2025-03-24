@@ -92,8 +92,10 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 - Actualmente no puedo obtener la página web de la empresa, solo la URL de InfoJobs. Mi plan es crear una nueva tabla que conecte con el ID de la empresa, entrar a la url de Infojobs de la empresa, extraer su página web principal mediante otro **view** nuevo, y mostrarla en el frontend en formato HTML.
 - Añadir filtros en la página offers, para que el usuario pueda filtrar por salario, por ciudad, etc.
 - Añadir gráfico que muestre una media de salarios.
+<br>
 
-> [NOTE]:  
+> [!NOTE]:
+>
 > Tuve un pequeño problema con Github, ya que dentro de mi repositorio local creé sin querer otro repositorio, lo que me generaba conflictos a la hora de hacer commits. Finalmente, pude borrar y desvincular el repositorio local y creé una nueva rama `feature/scraping-v2` para continuar trabajando.
 
 
@@ -106,7 +108,8 @@ Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva bas
 [Haz click aquí para ver la Demostración](https://www.canva.com/design/DAGijP_bTMA/DbQRFCVzr6SFNPLYF_K7Jw/edit?utm_content=DAGijP_bTMA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
-> [NOTE]
+> [!NOTE]
+>
 > Es cierto que el la imagen de mi Docker no funciona correctamente para hacer búsquedas, pero como sí que devuelve la lista de las anteriores búsquedas desde la base de datos, he querido dejarlo subido para mostrar que he podido subirlo, y posteriormente podré corregir el error.
 
 ## ¿Cómo descargar y usar mi imagen desde Docker Hub?
