@@ -136,17 +136,17 @@ docker run -d --name scraper allaharuty/scraper-v2:latest
 ### Verificar el funcionamiento:
 Para comprobar que el contenedor se está ejecutando correctamente, puedes ver los logs con el siguiente comando:
 ```bash
-docker logs scraper
+docker logs scraper-v2
 ```
 
 ### Detener después de usar:
 Cuando hayas terminado de usarlo, puedes detener el contenedor con:
 ```bash
-docker stop scraper
+docker stop scraper-v2
 ```
 
 ### Eliminar después de detener:
 Y si deseas eliminar el contenedor después de detenerlo, ejecuta:
 ```bash
-docker rm scraper
+docker rm scraper-v2
 ```
