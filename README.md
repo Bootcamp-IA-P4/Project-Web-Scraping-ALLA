@@ -24,7 +24,7 @@ Para llevar a cabo este proyecto he usado las siguientes herramientas:
 - Supabase.com para base de datos postgres
 - Librería logging de Python para la trazabilidad de logs y errores
 - Test unitarios para el modelo y para los views, en scraper > tests.py
-- Para evitar baneos de IP, he usado user_agent y undetected_chromedriver
+- Para evitar baneos de IP, he usado user_agent, undetected_chromedriver y time.sleeps para que imitar comportamiento humano.
 - He usado Tailwind para el frontend
 - Imagen Docker subido a Docker Hub para poder descargar de forma fácil
 - Trello para la organización de mi proyecto
@@ -116,6 +116,21 @@ python scraper_project/manage.py test scraper.tests.test_views --keepdb
 
 Se usa ``--keepdb``para que cada vez que corremos los test no cree una nueva base de datos y así no dar errores.
 
+### Niveles de logs usando la librería logging de Python:
+
+`logger.info("Opened web to scrape")`: Tipo info, cuando el driver abre la página web a scrapear.
+
+`logger.info("Cookies accepted.")` : Tipo info, cuando el driver acepta las cookies.
+
+`logger.error(f"Error: {e} - Agree button not found or already clicked.")` : Tipo error, cuando hay algún error al aceptar las cookies.
+
+`logger.error(f"Error scraping offer: {e}")`: Tipo error, cuando hay algún error mientras se scrapea la oferta.
+
+`logger.info("Scraping finished")`: Tipo info, cuando el scraping se termina correctamente.
+
+`logger.error(f"Error: {e}")`: Tipo error, cuando hay algún error inesperado y la página se cierra.
+
+`logger.warning("All data deleted")`: Tipo warning, cuando reseteamos la base de datos desde frontend.
 
 ### Problemas encontrados y soluciones
 
